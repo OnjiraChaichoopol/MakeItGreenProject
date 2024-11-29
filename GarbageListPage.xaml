@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Make_it_Green.GarbageListPage"
+             Title="GarbageListPage">
+    <Grid>
+
+    <!-- Background Image covering the entire page -->
+        <Image Source="garbagelist_bg.png" Aspect="AspectFill" />
+
+
+        <Label Text="Add Order"
+               FontSize="16"
+               TextDecorations="Underline"
+               TextColor="#FF4848FF"
+               HorizontalOptions="Center"
+               VerticalOptions="End"
+               Margin="280,50,0,195">
+            <!-- TapGestureRecognizer to handle tap event -->
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                
+            </Label.GestureRecognizers>
+        </Label>
+
+
+        <!--น้ำฝนเพิ่ม-->
+        <!-- แสดงข้อมูลประเภท, น้ำหนัก, ราคา-->
+        <Label x:Name="TypeLabel" 
+               FontSize="16" 
+               TextColor="Black"
+               HorizontalOptions="Start"
+               VerticalOptions="StartAndExpand" 
+               Margin="58,210,15,8"/>
+        
+        <Label x:Name="WeightLabel" 
+               FontSize="16" 
+               TextColor="Black"
+               HorizontalOptions="Start"
+               VerticalOptions="StartAndExpand" 
+               Margin="213,210,15,8"/>
+        
+        <Label x:Name="PriceLabel" 
+               FontSize="16" 
+               TextColor="Black"
+               HorizontalOptions="Start"
+               VerticalOptions="StartAndExpand" 
+               Margin="320,210,15,8"/>
+
+       <!--เพิ่มปุ่ม SUBMIT-->
+       <Button 
+                Text="SUBMIT" 
+                FontSize="16"
+                FontFamily="CloudSoftBold"
+                TextColor="White" 
+                BackgroundColor="#FF236F23" 
+                Margin="0,620,0,0" 
+                CornerRadius="40"
+                WidthRequest="150"
+                HeightRequest="40"
+                Clicked="OnSubmitClicked">
+       </Button>
+        
+    </Grid>
+</ContentPage>
