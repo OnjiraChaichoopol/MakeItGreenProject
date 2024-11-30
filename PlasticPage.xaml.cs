@@ -52,7 +52,7 @@ public partial class PlasticPage : ContentPage
 	private async void OnSaveClicked(object sender, EventArgs e)
     {
         
-        //น้ำฝนเพิ่ม
+        //เพิ่ม
         //น้ำหนัก ราคา
         var garbageData = new GarbageData
     {
@@ -66,9 +66,5 @@ public partial class PlasticPage : ContentPage
     // ส่งข้อมูลไปยัง GarbageListPage
     await Navigation.PushAsync(new GarbageListPage(garbageData));
     }
-
-
-
- 
 
 }
