@@ -1,3 +1,4 @@
+//ตัวเก็บข้อมูลที่ระบุรายละเอียด แล้วไปแสดงผลในหน้า GarbageListPage
 using System;
 
 namespace Make_it_Green;

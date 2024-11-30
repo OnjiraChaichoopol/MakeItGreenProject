@@ -1,4 +1,6 @@
-
+using System;  
+using Google.Cloud.Firestore;
+using Make_it_Green.Services;
 namespace Make_it_Green;
 
 //public partial class GarbageListPage : ContentPage
@@ -22,10 +24,12 @@ namespace Make_it_Green;
 
 
 
-//ฝนทำ
+
 public partial class GarbageListPage : ContentPage
 {
     private GarbageData _garbageData;
+    //พึ่งเพิ่ม
+    private FirestoreService _firestoreService;
 
     // รับข้อมูลจากหน้าต่างๆ ผ่านคอนสตรัคเตอร์
     public GarbageListPage(GarbageData garbageData)
@@ -35,7 +39,7 @@ public partial class GarbageListPage : ContentPage
         // กำหนดค่าข้อมูลที่ได้รับ
         _garbageData = garbageData;
 
-        // แสดงข้อมูลบนหน้า
+        // นำข้อมูลจาก GarbageData มาแสดงบนหน้า
         TypeLabel.Text = _garbageData.Type;  // แสดงประเภทขยะ
         WeightLabel.Text = $" {_garbageData.Weight} kg";  // แสดงน้ำหนัก
         PriceLabel.Text = $" {_garbageData.Price} THB";  // แสดงราคา
@@ -64,6 +68,12 @@ public partial class GarbageListPage : ContentPage
     // หากผู้ใช้กด "Yes"
     if (isConfirmed)
     {
+        //พึ่งเพิ่ม
+        // บันทึกข้อมูลลง Firestore
+        await _firestoreService.AddGarbageData(_garbageData);
+
+        
+                
         // นำทางไปยังหน้า HomePage
         await Navigation.PushAsync(new HomePage());
     }
